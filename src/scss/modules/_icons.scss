@@ -1,0 +1,104 @@
+@font-face {
+	font-family: "CustomIcons";
+	src: url('../fonts/icons/CustomIcons.eot');
+	src: url('../fonts/icons/CustomIcons.eot?#iefix') format('eot'),
+		url('../fonts/icons/CustomIcons.woff2') format('woff2'),
+		url('../fonts/icons/CustomIcons.woff') format('woff'),
+		url('../fonts/icons/CustomIcons.ttf') format('truetype'),
+		url('../fonts/icons/CustomIcons.svg#CustomIcons') format('svg');
+}
+
+@mixin icon-styles {
+	font-family: "CustomIcons";
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	// speak: none; // only necessary if not using the private unicode range (firstGlyph option)
+	text-decoration: none;
+	text-transform: none;
+}
+
+%icon {
+	@include icon-styles;
+}
+
+@function icon-char($filename) {
+	$char: "";
+
+	@if $filename == arrow-down {
+		$char: "\E001";
+	}
+	@if $filename == birthday {
+		$char: "\E002";
+	}
+	@if $filename == climb {
+		$char: "\E003";
+	}
+	@if $filename == facebook {
+		$char: "\E004";
+	}
+	@if $filename == google {
+		$char: "\E005";
+	}
+	@if $filename == location {
+		$char: "\E006";
+	}
+	@if $filename == password {
+		$char: "\E007";
+	}
+	@if $filename == phone {
+		$char: "\E008";
+	}
+	@if $filename == ride {
+		$char: "\E009";
+	}
+	@if $filename == user {
+		$char: "\E00A";
+	}
+
+	@return $char;
+}
+
+@mixin icon($filename, $insert: before, $extend: true) {
+	&:#{$insert} {
+		@if $extend {
+			@extend %icon;
+		} @else {
+			@include icon-styles;
+		}
+		content: icon-char($filename);
+	}
+}
+
+.icon-arrow-down {
+	@include icon(arrow-down);
+}
+.icon-birthday {
+	@include icon(birthday);
+}
+.icon-climb {
+	@include icon(climb);
+}
+.icon-facebook {
+	@include icon(facebook);
+}
+.icon-google {
+	@include icon(google);
+}
+.icon-location {
+	@include icon(location);
+}
+.icon-password {
+	@include icon(password);
+}
+.icon-phone {
+	@include icon(phone);
+}
+.icon-ride {
+	@include icon(ride);
+}
+.icon-user {
+	@include icon(user);
+}

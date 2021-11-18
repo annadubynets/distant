@@ -1,7 +1,8 @@
-@import "./bootstrap.min.css";
-@import "./bootstrap-select.min.css";
-@import "fonts.css";
-@import "variables";
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+@import 'modules/variables';
+@import 'modules/fonts';
+@import 'modules/icons';
+
 body {
     font-family: 'Lato';
     background-color: $white;
