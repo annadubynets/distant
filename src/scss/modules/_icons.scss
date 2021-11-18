@@ -1,15 +1,15 @@
 @font-face {
-	font-family: "CustomIcons";
-	src: url('../fonts/icons/CustomIcons.eot');
-	src: url('../fonts/icons/CustomIcons.eot?#iefix') format('eot'),
-		url('../fonts/icons/CustomIcons.woff2') format('woff2'),
-		url('../fonts/icons/CustomIcons.woff') format('woff'),
-		url('../fonts/icons/CustomIcons.ttf') format('truetype'),
-		url('../fonts/icons/CustomIcons.svg#CustomIcons') format('svg');
+	font-family: "IconsFont";
+	src: url('../fonts/icons/IconsFont.eot');
+	src: url('../fonts/icons/IconsFont.eot?#iefix') format('eot'),
+		url('../fonts/icons/IconsFont.woff2') format('woff2'),
+		url('../fonts/icons/IconsFont.woff') format('woff'),
+		url('../fonts/icons/IconsFont.ttf') format('truetype'),
+		url('../fonts/icons/IconsFont.svg#IconsFont') format('svg');
 }
 
 @mixin icon-styles {
-	font-family: "CustomIcons";
+	font-family: "IconsFont";
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 	font-style: normal;

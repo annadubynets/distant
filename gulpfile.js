@@ -36,8 +36,11 @@ const paths = {
 }
 
 
+/**
+ * Builds the svg icons to font
+ */
 gulp.task('build:iconfont', function() {
-    const fontName = 'CustomIcons';
+    const fontName = 'IconsFont';
     return gulp.src(['src/font-icons/*.svg'])
         .pipe(iconfontCss({
             fontName: fontName,
@@ -48,6 +51,7 @@ gulp.task('build:iconfont', function() {
         .pipe(iconfont({
             fontName: fontName,
             fontHeight: 1000,
+            formats: ['ttf', 'eot', 'woff', 'woff2', 'svg'],
         }))
         .pipe(gulp.dest('public/build/fonts/icons/'))
         .pipe(browserSync.stream());
