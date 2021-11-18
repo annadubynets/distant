@@ -1,0 +1,18 @@
+$black: #040C27;
+$darkgrey: #696969;
+$silver: #AEAEAE;
+$grey: #848484;
+$lavender: #BFCBFF;
+$blue: #4565CF;
+$white: #FFFFFF;
+$whitesmoke: #FCFCFC;
+$grid-breakpoints: ( xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px, xxl: 1400px);
+h1 {
+    font-weight: 600;
+    font-size: 22px;
+    color: $black;
+}
+
+.pt-250px {
+    padding-top: 250px;
+}
