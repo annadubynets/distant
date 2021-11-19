@@ -2,17 +2,28 @@ $black: #040C27;
 $darkgrey: #696969;
 $silver: #AEAEAE;
 $grey: #848484;
-$lavender: #BFCBFF;
+$lightgrey: #D4D4D4;
+$lavender: #F4F6FF;
 $blue: #4565CF;
+$red: #DB4437;
 $white: #FFFFFF;
-$whitesmoke: #FCFCFC;
-$grid-breakpoints: ( xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px, xxl: 1400px);
+$whitesmoke: #F9F9F9;
 h1 {
     font-weight: 600;
-    font-size: 22px;
+    font-size: 24px;
     color: $black;
 }
 
-.pt-250px {
-    padding-top: 250px;
+p {
+    font-weight: normal;
+    font-size: 14px;
+    color: $black;
+}
+
+.font-size-24px {
+    font-size: 24px;
+}
+
+.pt-180px {
+    padding-top: 180px;
 }

@@ -1,0 +1,37 @@
+.popover-content {
+    display: none;
+}
+
+.popover-body {
+    .popover-content {
+        display: block;
+    }
+}
+
+.popover.popover-with-html {
+    max-width: 500px;
+}
+
+.popover {
+    background-color: $lavender;
+    border-radius: 4px;
+    border: none;
+    padding: 40px;
+}
+
+.bs-popover-end>.popover-arrow::before,
+.bs-popover-auto[data-popper-placement^=right]>.popover-arrow::before {
+    background-color: $lavender;
+    border: none;
+}
+
+.bs-popover-end>.popover-arrow::after,
+.bs-popover-auto[data-popper-placement^=right]>.popover-arrow::after {
+    background-color: $lavender;
+    border: none;
+}
+
+.bs-popover-top>.popover-arrow::before,
+.bs-popover-auto[data-popper-placement^=top]>.popover-arrow::before {
+    border: none;
+}

@@ -1,4 +1,3 @@
-
 require('dotenv').config();
 
 const gulp = require('gulp'),
@@ -24,6 +23,7 @@ const paths = {
         ts: './src/js/**/*.ts',
         js: './src/js/**/*.js',
         scss: './src/scss/*.scss',
+        scss_all: './src/scss/**/*.scss',
         fonts: './src/fonts/**/*.{eot,svg,ttf,woff,woff2}',
     },
     dest: {
@@ -51,6 +51,7 @@ gulp.task('build:iconfont', function() {
         .pipe(iconfont({
             fontName: fontName,
             fontHeight: 1000,
+            centerVertically: true,
             formats: ['ttf', 'eot', 'woff', 'woff2', 'svg'],
         }))
         .pipe(gulp.dest('public/build/fonts/icons/'))
@@ -62,7 +63,7 @@ gulp.task('build:iconfont', function() {
  * Prepare fonts
  */
 gulp.task('build:fonts', function() {
-    return gulp.src(paths.src.fonts) 
+    return gulp.src(paths.src.fonts)
         .pipe(gulp.dest(paths.dest.fonts))
         .pipe(browserSync.stream());
 });
@@ -71,7 +72,7 @@ gulp.task('build:fonts', function() {
 /**
  * Compile TS to ES6
  */
-gulp.task('build:ts', function () {
+gulp.task('build:ts', function() {
     return gulp.src(paths.src.ts)
         .pipe(sourcemaps.init())
         .pipe(ts({
@@ -81,7 +82,7 @@ gulp.task('build:ts', function () {
             removeComments: true,
             allowSyntheticDefaultImports: true
         }))
-        .pipe(gulpBabel({presets: ['@babel/preset-env']}))
+        .pipe(gulpBabel({ presets: ['@babel/preset-env'] }))
         .pipe(sourcemaps.write("."))
         .pipe(gulp.dest(paths.dest.ts))
         .pipe(browserSync.stream());
@@ -91,7 +92,7 @@ gulp.task('build:ts', function () {
 /**
  * Builds js files
  */
-gulp.task('build:js', gulp.series('build:ts', function () {
+gulp.task('build:js', gulp.series('build:ts', function() {
     log("Building js files...");
     return gulp.src(paths.dest.ts + '/**/*.js')
         .pipe(webpack({
@@ -101,13 +102,11 @@ gulp.task('build:js', gulp.series('build:ts', function () {
                 filename: 'app.js',
             },
             module: {
-                rules: [
-                    {
-                      test: /\.js$/,
-                      enforce: "pre",
-                      use: ["source-map-loader"],
-                    },
-                ],
+                rules: [{
+                    test: /\.js$/,
+                    enforce: "pre",
+                    use: ["source-map-loader"],
+                }, ],
             },
         }, compiler))
         .pipe(gulp.dest(paths.dest.js))
@@ -122,7 +121,7 @@ gulp.task('build:css', function() {
     log("Building sass files...");
     return gulp.src(paths.src.scss)
         .pipe(sourcemaps.init())
-        .pipe(sass({outputStyle: isProduction ? 'compressed' : undefined}).on('error', sass.logError))
+        .pipe(sass({ outputStyle: isProduction ? 'compressed' : undefined }).on('error', sass.logError))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(paths.dest.css))
         .pipe(browserSync.stream());
@@ -146,7 +145,7 @@ gulp.task('build', gulp.series(
 gulp.task('watch', function() {
     log('Watching source files..');
     gulp.watch([paths.src.ts], gulp.task('build:js'));
-    gulp.watch([paths.src.scss], gulp.task('build:css'));
+    gulp.watch([paths.src.scss_all], gulp.task('build:css'));
 });
 
 
@@ -172,7 +171,7 @@ gulp.task('browsersync', function(cb) {
 /**
  * Builds the project, starts the dev server and runs watch
  */
-gulp.task('dev', gulp.series('build', 'browsersync', 'watch',));
+gulp.task('dev', gulp.series('build', 'browsersync', 'watch', ));
 
 
 /**

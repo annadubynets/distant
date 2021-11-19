@@ -1,8 +1,8 @@
-@import '../../node_modules/bootstrap/scss/bootstrap.scss';
 @import 'modules/variables';
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';
 @import 'modules/fonts';
 @import 'modules/icons';
-
+@import 'modules/popover';
 body {
     font-family: 'Lato';
     background-color: $white;
@@ -33,9 +33,9 @@ a {
     position: absolute;
     top: 0;
     right: 0;
-    width: 50vw;
+    width: 50%;
+    height: 100%;
     object-fit: contain;
-    bottom: 0;
 }
 
 .hero {
@@ -51,8 +51,7 @@ a {
 .btn-primary {
     font-weight: 700;
     font-size: 14px;
-    color: $white;
-    background: $blue;
+    color: $whitesmoke;
     border: none;
     border-radius: 7px;
     padding: 16px 40px;
@@ -76,9 +75,15 @@ input {
     outline: none;
 }
 
+.form-label {
+    font-weight: 600;
+    font-size: 12px;
+    color: $blue;
+}
+
 .input-group {
-    border: 1.5px solid $lavender;
-    border-radius: 7px;
+    border: 1px solid $blue;
+    border-radius: 4px;
     &:focus {
         outline: none;
         box-shadow: none;
@@ -86,16 +91,16 @@ input {
     }
     .form-control {
         font-weight: 500;
-        font-size: 14px;
+        font-size: 16px;
         color: $silver;
         background-color: transparent;
-        padding: 20px 18px;
+        padding: 16px;
         border: 0;
         &:focus {
             box-shadow: none;
         }
         &::placeholder {
-            color: $silver;
+            color: $lightgrey;
         }
     }
     .input-group-text {

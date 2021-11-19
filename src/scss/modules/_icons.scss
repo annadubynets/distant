@@ -42,20 +42,23 @@
 	@if $filename == google {
 		$char: "\E005";
 	}
-	@if $filename == location {
+	@if $filename == horizontal-dots {
 		$char: "\E006";
 	}
-	@if $filename == password {
+	@if $filename == location {
 		$char: "\E007";
 	}
-	@if $filename == phone {
+	@if $filename == password {
 		$char: "\E008";
 	}
-	@if $filename == ride {
+	@if $filename == phone {
 		$char: "\E009";
 	}
-	@if $filename == user {
+	@if $filename == ride {
 		$char: "\E00A";
+	}
+	@if $filename == user {
+		$char: "\E00B";
 	}
 
 	@return $char;
@@ -86,6 +89,9 @@
 }
 .icon-google {
 	@include icon(google);
+}
+.icon-horizontal-dots {
+	@include icon(horizontal-dots);
 }
 .icon-location {
 	@include icon(location);

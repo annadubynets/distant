@@ -16,6 +16,7 @@ Active it
 
 ### How to start the dev server for development? ###
 
+    npm install
     npm run dev
 
 
