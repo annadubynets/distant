@@ -84,6 +84,7 @@ input {
 .input-group {
     border: 1px solid $blue;
     border-radius: 4px;
+    line-height: 0;
     &:focus {
         outline: none;
         box-shadow: none;
@@ -106,6 +107,7 @@ input {
     .input-group-text {
         background-color: transparent;
         border: 0;
+        line-height: 0;
         padding: 20px 18px;
     }
 }
